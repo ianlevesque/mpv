@@ -845,6 +845,7 @@ def options(opt):
     opt.load('waf_customizations')
     opt.load('features')
     opt.load('gnu_dirs')
+    opt.load('clang_compilation_database')
 
     #remove unused options from gnu_dirs
     opt.parser.remove_option("--sbindir")
@@ -935,6 +936,7 @@ def configure(ctx):
     ctx.load('detections.compiler')
     ctx.load('detections.devices')
     ctx.load('gnu_dirs')
+    ctx.load('clang_compilation_database')
 
     # if libdir is not set in command line options,
     # override the gnu_dirs default in order to

@@ -155,3 +155,19 @@ contained in the file ``waftools/dependencies.py``.
 
 Also ``dependencies_use`` and ``dependencies_includes`` collect cflags and
 ldflags that were generated from the features checks in the configure step.
+
+Using IDEs with waf
+===================
+
+It's possible to use CLion or other IDEs that support the clang-style
+'compile_commands.json'. From the checkout root::
+
+  ./bootstrap.py
+  ./waf configure
+  ./waf
+  ln -s build/compile_commands.json compile_commands.json
+
+Then open the mpv top-level directory in your IDE.  If you add files you will
+need to re-run ``./waf clean && ./waf`` again.  I do not recommend
+auto-reloading the ``compile_commands.json`` file because it will be
+incomplete after partial rebuilds.
